@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="4dp"
+    android:paddingEnd="4dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        tools:background="#000" />
+
+    <TextView
+        android:id="@+id/source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="13dp"
+        android:layout_toEndOf="@+id/image"
+        tools:text="Source" />
+
+    <TextView
+        android:id="@+id/destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/source"
+        android:layout_marginStart="13dp"
+        android:layout_toEndOf="@+id/image"
+        tools:text="Destination" />
+
+    <TextView
+        android:id="@+id/Departure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/destination"
+        android:layout_marginStart="13dp"
+        android:layout_toEndOf="@+id/image"
+        tools:text="Departure" />
+
+    <TextView
+        android:id="@+id/Arrival"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Departure"
+        android:layout_marginStart="13dp"
+        android:layout_toEndOf="@+id/image"
+        tools:text="Arrival" />
+
+    <TextView
+        android:id="@+id/ticketPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Arrival"
+        android:layout_marginStart="13dp"
+        android:layout_toEndOf="@+id/image"
+        tools:text="ticketPrice" />
+
+    <TextView
+        android:id="@+id/Airline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ticketPrice"
+        android:layout_marginStart="13dp"
+        android:layout_toEndOf="@+id/image"
+        tools:text="Airline" />
+
+</RelativeLayout>

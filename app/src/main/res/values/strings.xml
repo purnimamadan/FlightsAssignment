@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Flights Assignment</string>
+    <string name="load_flights">Load Flights</string>
+    <string name="empty">empty</string>
+</resources>
