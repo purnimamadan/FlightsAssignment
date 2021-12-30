@@ -10,7 +10,7 @@ import androidx.annotation.Nullable
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.flightsassignment.data.DataManager
-import com.example.flightsassignment.data.domain.Flight
+import com.example.flightsassignment.data.model.Flight
 import com.example.flightsassignment.data.repository.flight.FlightRepository
 import com.example.flightsassignment.databinding.ActivityMainBinding
 import com.example.flightsassignment.ui.base.BaseActivity
@@ -62,7 +62,7 @@ class MainActivity : BaseActivity<ActivityMainBinding?, MainViewModel?>(),
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
-                    view: View,
+                    view: View?,
                     position: Int,
                     id: Long) {
                     priceSorting = binding?.sortbySpinner?.selectedItem.toString()
@@ -116,7 +116,7 @@ class MainActivity : BaseActivity<ActivityMainBinding?, MainViewModel?>(),
         } else if (priceSorting.equals(resources.getString(R.string.departure))) {
             this@MainActivity.flights.sortBy { it.Departure }
         }
-        flightAdapter?.setItems(this@MainActivity.flights)
+        if (!this@MainActivity.flights.isNullOrEmpty()) flightAdapter?.setItems(this@MainActivity.flights)
     }
 
     override fun onFlightClicked(flight: Flight?) {}

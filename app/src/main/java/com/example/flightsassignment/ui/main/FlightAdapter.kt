@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.flightsassignment.data.domain.Flight
+import com.example.flightsassignment.data.model.Flight
 import com.example.flightsassignment.databinding.ItemFlightBinding
 import com.example.flightsassignment.ui.main.FlightAdapter.FlightViewHolder
 import java.util.ArrayList
@@ -34,8 +34,7 @@ class FlightAdapter(listener: FlightListener) :
 
     override fun onBindViewHolder(
         holder: FlightViewHolder,
-        position: Int
-    ) {
+        position: Int) {
         holder.bind(position)
     }
 

@@ -2,7 +2,7 @@ package com.example.flightsassignment.ui.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.flightsassignment.data.domain.Flight
+import com.example.flightsassignment.data.model.Flight
 import com.example.flightsassignment.data.repository.flight.FlightRepository
 import com.example.flightsassignment.ui.base.BaseViewModel
 

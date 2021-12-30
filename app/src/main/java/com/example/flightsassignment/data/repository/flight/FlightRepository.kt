@@ -1,6 +1,6 @@
 package com.example.flightsassignment.data.repository.flight
 
-import com.example.flightsassignment.data.domain.Flight
+import com.example.flightsassignment.data.model.Flight
 
 interface FlightRepository {
     interface LoadFlightsCallback {

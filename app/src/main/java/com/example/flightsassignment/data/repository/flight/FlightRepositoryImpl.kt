@@ -1,8 +1,8 @@
 package com.example.flightsassignment.data.repository.flight
 
-import com.example.flightsassignment.data.domain.Flight
+import com.example.flightsassignment.data.model.Flight
 
-class FlightRepositoryImpl private constructor(flightRemote: FlightRemoteDataSource) :
+class FlightRepositoryImpl(flightRemote: FlightRemoteDataSource) :
     FlightRepository {
     private val flightRemote: FlightDataSource.Remote
     override fun getFlights(callback: FlightRepository.LoadFlightsCallback?) {
