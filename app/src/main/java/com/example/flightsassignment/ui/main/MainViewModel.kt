@@ -6,32 +6,25 @@ import com.example.flightsassignment.data.domain.Flight
 import com.example.flightsassignment.data.repository.flight.FlightRepository
 import com.example.flightsassignment.ui.base.BaseViewModel
 
-class MainViewModel internal constructor(moviesRepository: FlightRepository) :
+class MainViewModel internal constructor(flightRepository: FlightRepository) :
     BaseViewModel() {
     /**
      * LiveData
      */
-    var moviesLiveData: MutableLiveData<List<Flight>> = MutableLiveData()
-//        private set(moviesLiveData) {
-//            setIsLoading(false)
-//            val x: List<Flight>
-//            val y: MutableLiveData<List<Flight>> = moviesLiveData
-//            y.postValue(x)
-//            this.moviesLiveData.postValue(moviesLiveData)
-//        }
+    var flightsLiveData: MutableLiveData<List<Flight>> = MutableLiveData()
     private val showErrorMessageLiveData: MutableLiveData<String> = MutableLiveData()
     private val showLoadingLiveData: MutableLiveData<Void> = MutableLiveData()
     private val hideLoadingLiveData: MutableLiveData<Void> = MutableLiveData()
     private val navigateToDetailsLiveData: MutableLiveData<Flight> = MutableLiveData()
     private val flightRepository: FlightRepository
-    private val movieCallback: MovieCallback
+    private val flightCallback: FlightCallback
         get() {
-            return MovieCallback()
+            return FlightCallback()
         }
 
     fun loadFlights() {
         setIsLoading(true)
-        flightRepository.getFlights(movieCallback)
+        flightRepository.getFlights(flightCallback)
     }
 
     private fun setIsLoading(loading: Boolean) {
@@ -45,10 +38,10 @@ class MainViewModel internal constructor(moviesRepository: FlightRepository) :
     /**
      * Callback
      */
-    private inner class MovieCallback : FlightRepository.LoadFlightsCallback {
+    private inner class FlightCallback : FlightRepository.LoadFlightsCallback {
         override fun onFlightsLoaded(flights: List<Flight>?) {
             if (flights != null)
-                setMoviesLiveData(flights)
+                setFlightsLiveData(flights)
         }
 
         override fun onDataNotAvailable() {
@@ -78,12 +71,12 @@ class MainViewModel internal constructor(moviesRepository: FlightRepository) :
         return navigateToDetailsLiveData
     }
 
-    private fun setMoviesLiveData(moviesLiveData: List<Flight>) {
+    private fun setFlightsLiveData(flightsLiveData: List<Flight>) {
         setIsLoading(false)
-        this.moviesLiveData.postValue(moviesLiveData)
+        this.flightsLiveData.postValue(flightsLiveData)
     }
 
     init {
-        flightRepository = moviesRepository
+        this.flightRepository = flightRepository
     }
 }

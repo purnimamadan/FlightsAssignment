@@ -2,18 +2,18 @@ package com.example.flightsassignment.data.repository.flight
 
 import com.example.flightsassignment.data.domain.Flight
 
-class FlightRepositoryImpl private constructor(movieRemote: FlightRemoteDataSource) :
+class FlightRepositoryImpl private constructor(flightRemote: FlightRemoteDataSource) :
     FlightRepository {
-    private val movieRemote: FlightDataSource.Remote
+    private val flightRemote: FlightDataSource.Remote
     override fun getFlights(callback: FlightRepository.LoadFlightsCallback?) {
         if (callback == null) return
         //here can check between local and remote
         //currently directly picking from remote
-        getMoviesFromRemoteDataSource(callback)
+        getFlightsFromRemoteDataSource(callback)
     }
 
-    private fun getMoviesFromRemoteDataSource(callback: FlightRepository.LoadFlightsCallback) {
-        movieRemote.getFlights(object : FlightRepository.LoadFlightsCallback {
+    private fun getFlightsFromRemoteDataSource(callback: FlightRepository.LoadFlightsCallback) {
+        flightRemote.getFlights(object : FlightRepository.LoadFlightsCallback {
             override fun onFlightsLoaded(flights: List<Flight>?) {
                 callback.onFlightsLoaded(flights)
             }
@@ -30,15 +30,15 @@ class FlightRepositoryImpl private constructor(movieRemote: FlightRemoteDataSour
 
     companion object {
         private var instance: FlightRepositoryImpl? = null
-        fun getInstance(movieRemote: FlightRemoteDataSource?): FlightRepositoryImpl {
+        fun getInstance(flightRemote: FlightRemoteDataSource?): FlightRepositoryImpl {
             if (instance == null) {
-                instance = FlightRepositoryImpl(movieRemote!!)
+                instance = FlightRepositoryImpl(flightRemote!!)
             }
             return instance!!
         }
     }
 
     init {
-        this.movieRemote = movieRemote
+        this.flightRemote = flightRemote
     }
 }

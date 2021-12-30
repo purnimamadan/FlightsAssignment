@@ -2,4 +2,10 @@
     <string name="app_name">Flights Assignment</string>
     <string name="load_flights">Load Flights</string>
     <string name="empty">empty</string>
+    <string name="low_to_high">Low to High</string>
+    <string name="high_to_low">High to Low</string>
+    <string name="price">Price</string>
+    <string name="departure">Departure</string>
+    <string name="sort_by_departure">Sort by Departure</string>
+    <string name="sort_by">Sort by : </string>
 </resources>

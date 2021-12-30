@@ -7,7 +7,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone">
 
         <Button
             android:id="@+id/load"
@@ -16,6 +17,29 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="8dp"
+            android:text="@string/load_flights" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/sortby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/sort_by" />
+
+        <Spinner
+            android:id="@+id/sortby_spinner"
+            style="@style/Theme.AppCompat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
             android:text="@string/load_flights" />
 
     </LinearLayout>
